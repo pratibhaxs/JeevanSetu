@@ -7,8 +7,8 @@
     <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
-  <body class="min-h-screen flex items-center justify-center bg-[#f8fafc]" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
-    <div class="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
+  <body class="min-h-screen flex items-center justify-center bg-[#f8fafc] px-2 sm:px-0" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="w-full max-w-xs sm:max-w-2xl bg-white rounded-lg shadow-lg p-4 sm:p-8 flex flex-col items-center">
       <div class="size-8 mb-2">
         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="#1993e5"></path>
@@ -19,9 +19,9 @@
       <button id="logoutBtn" class="w-full bg-[#1993e5] text-white font-bold py-2 rounded-lg hover:bg-[#157ac1] transition mb-6">Logout</button>
 
       <!-- Health Profile Form -->
-      <form id="profileForm" class="w-full flex flex-col gap-4 mb-6">
-        <h3 class="text-lg font-semibold text-[#111518] mb-2">Health Profile</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <form id="profileForm" class="w-full flex flex-col gap-3 sm:gap-4 mb-6">
+        <h3 class="text-base sm:text-lg font-semibold text-[#111518] mb-2">Health Profile</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label class="block text-sm font-medium text-[#111518] mb-1" for="fullName">Full Name</label>
             <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="fullName" name="fullName" />
@@ -82,9 +82,9 @@
 
       <!-- Placeholders for Edit, Delete, and View Summary -->
       <div class="w-full flex flex-col gap-2 mt-6">
-        <button class="w-full bg-yellow-500 text-white font-bold py-2 rounded-lg hover:bg-yellow-600 transition">Edit Profile (Coming Soon)</button>
-        <button class="w-full bg-red-500 text-white font-bold py-2 rounded-lg hover:bg-red-600 transition">Delete Profile (Coming Soon)</button>
-        <button class="w-full bg-gray-500 text-white font-bold py-2 rounded-lg hover:bg-gray-600 transition">View Health Summary (Coming Soon)</button>
+        <button class="w-full bg-yellow-500 text-white font-bold py-2 rounded-lg hover:bg-yellow-600 transition text-sm sm:text-base">Edit Profile (Coming Soon)</button>
+        <button class="w-full bg-red-500 text-white font-bold py-2 rounded-lg hover:bg-red-600 transition text-sm sm:text-base">Delete Profile (Coming Soon)</button>
+        <button class="w-full bg-gray-500 text-white font-bold py-2 rounded-lg hover:bg-gray-600 transition text-sm sm:text-base">View Health Summary (Coming Soon)</button>
       </div>
     </div>
     <script>
