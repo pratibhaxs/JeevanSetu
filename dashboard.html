@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard - JeevanSetu ID</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-[#f8fafc]" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8 flex flex-col items-center">
+      <div class="size-8 mb-2">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="#1993e5"></path>
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-[#111518] mb-2">Welcome, <span id="userName"></span>!</h2>
+      <p class="text-[#637988] text-base mb-6">Your email: <span id="userEmail"></span></p>
+      <button id="logoutBtn" class="w-full bg-[#1993e5] text-white font-bold py-2 rounded-lg hover:bg-[#157ac1] transition mb-6">Logout</button>
+
+      <!-- Health Profile Form -->
+      <form id="profileForm" class="w-full flex flex-col gap-4 mb-6">
+        <h3 class="text-lg font-semibold text-[#111518] mb-2">Health Profile</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="fullName">Full Name</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="fullName" name="fullName" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="bloodGroup">Blood Group</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="bloodGroup" name="bloodGroup" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="allergies">Known Allergies</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="allergies" name="allergies" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="conditions">Medical Conditions</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="conditions" name="conditions" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="emergencyName">Emergency Contact Name</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="emergencyName" name="emergencyName" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="emergencyPhone">Emergency Contact Phone</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="tel" id="emergencyPhone" name="emergencyPhone" required />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="medications">Medications</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="medications" name="medications" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-[#111518] mb-1" for="doctor">Doctor's Name</label>
+            <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="doctor" name="doctor" />
+          </div>
+        </div>
+        <button type="submit" id="saveProfileBtn" class="w-full bg-[#1993e5] text-white font-bold py-2 rounded-lg hover:bg-[#157ac1] transition mt-2" disabled>Save Profile</button>
+      </form>
+      <div id="profileError" class="text-red-500 text-sm text-center mb-2 hidden"></div>
+
+      <!-- Generate JeevanSetu ID -->
+      <button id="generateIdBtn" class="w-full bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700 transition mb-4" style="display: none;">Generate JeevanSetu ID</button>
+
+      <!-- JeevanSetu ID Display & Sharing -->
+      <div id="idSection" class="w-full hidden flex-col items-center mb-4">
+        <div class="bg-[#f0f3f4] rounded-lg p-4 flex flex-col items-center mb-2">
+          <span class="text-lg font-bold text-[#1993e5]">Your JeevanSetu ID:</span>
+          <span id="jeevanSetuId" class="text-2xl font-mono font-bold text-[#111518] mt-1"></span>
+        </div>
+        <div class="flex gap-2 mb-2">
+          <button id="copyIdBtn" class="bg-[#1993e5] text-white px-3 py-1 rounded hover:bg-[#157ac1]">Copy</button>
+          <button id="downloadPdfBtn" class="bg-[#1993e5] text-white px-3 py-1 rounded hover:bg-[#157ac1]">Download PDF</button>
+          <button id="printBtn" class="bg-[#1993e5] text-white px-3 py-1 rounded hover:bg-[#157ac1]">Print</button>
+        </div>
+        <div class="flex gap-2">
+          <button id="shareWhatsappBtn" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Share WhatsApp</button>
+          <button id="shareSmsBtn" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Share SMS</button>
+          <button id="shareEmailBtn" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Share Email</button>
+        </div>
+      </div>
+
+      <!-- Placeholders for Edit, Delete, and View Summary -->
+      <div class="w-full flex flex-col gap-2 mt-6">
+        <button class="w-full bg-yellow-500 text-white font-bold py-2 rounded-lg hover:bg-yellow-600 transition">Edit Profile (Coming Soon)</button>
+        <button class="w-full bg-red-500 text-white font-bold py-2 rounded-lg hover:bg-red-600 transition">Delete Profile (Coming Soon)</button>
+        <button class="w-full bg-gray-500 text-white font-bold py-2 rounded-lg hover:bg-gray-600 transition">View Health Summary (Coming Soon)</button>
+      </div>
+    </div>
+    <script>
+      // User info
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (!user) {
+        window.location.href = 'login.html';
+      } else {
+        document.getElementById('userName').textContent = user.name || '';
+        document.getElementById('userEmail').textContent = user.email || '';
+      }
+      document.getElementById('logoutBtn').onclick = function() {
+        localStorage.removeItem('user');
+        window.location.href = 'index.html';
+      };
+
+      // Generate JeevanSetu ID
+      function generateJeevanSetuId() {
+        return 'JVS-' + Math.floor(1000 + Math.random() * 9000);
+      }
+      document.getElementById('generateIdBtn').onclick = function() {
+        alert('Your JeevanSetu ID will be generated and shown after you save your profile.');
+      };
+      document.getElementById('copyIdBtn').onclick = function() {
+        const id = document.getElementById('jeevanSetuId').textContent;
+        navigator.clipboard.writeText(id);
+        alert('ID copied!');
+      };
+      document.getElementById('downloadPdfBtn').onclick = function() {
+        alert('PDF download coming soon!');
+      };
+      document.getElementById('printBtn').onclick = function() {
+        window.print();
+      };
+      document.getElementById('shareWhatsappBtn').onclick = function() {
+        const id = document.getElementById('jeevanSetuId').textContent;
+        window.open('https://wa.me/?text=My JeevanSetu ID: ' + encodeURIComponent(id));
+      };
+      document.getElementById('shareSmsBtn').onclick = function() {
+        const id = document.getElementById('jeevanSetuId').textContent;
+        window.open('sms:?body=My JeevanSetu ID: ' + encodeURIComponent(id));
+      };
+      document.getElementById('shareEmailBtn').onclick = function() {
+        const id = document.getElementById('jeevanSetuId').textContent;
+        window.open('mailto:?subject=My JeevanSetu ID&body=My JeevanSetu ID: ' + encodeURIComponent(id));
+      };
+      // Save profile (placeholder)
+      document.getElementById('profileForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const errorDiv = document.getElementById('profileError');
+        errorDiv.classList.add('hidden');
+        const user = JSON.parse(localStorage.getItem('user'));
+        const jeevansetuId = document.getElementById('jeevanSetuId').textContent || '';
+        if (!jeevansetuId) {
+          // Don't block save, backend will generate if needed
+        }
+        const data = {
+          userEmail: user.email,
+          fullName: document.getElementById('fullName').value,
+          bloodGroup: document.getElementById('bloodGroup').value,
+          allergies: document.getElementById('allergies').value,
+          conditions: document.getElementById('conditions').value,
+          emergencyName: document.getElementById('emergencyName').value,
+          emergencyPhone: document.getElementById('emergencyPhone').value,
+          medications: document.getElementById('medications').value,
+          doctor: document.getElementById('doctor').value,
+          jeevansetuId
+        };
+        const res = await fetch('/api/profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (!res.ok) {
+          errorDiv.textContent = result.message || 'Error saving profile.';
+          errorDiv.classList.remove('hidden');
+        } else {
+          alert(result.message);
+          await loadProfile();
+          if (result.jeevansetuId) {
+            document.getElementById('jeevanSetuId').textContent = result.jeevansetuId;
+            document.getElementById('idSection').classList.remove('hidden');
+            document.getElementById('generateIdBtn').style.display = 'none';
+          }
+        }
+      };
+
+      async function loadProfile() {
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) return;
+        const res = await fetch('/api/profile?email=' + encodeURIComponent(user.email));
+        if (!res.ok) return;
+        const profile = await res.json();
+        if (profile) {
+          document.getElementById('fullName').value = profile.full_name || '';
+          document.getElementById('bloodGroup').value = profile.blood_group || '';
+          document.getElementById('allergies').value = profile.allergies || '';
+          document.getElementById('conditions').value = profile.conditions || '';
+          document.getElementById('emergencyName').value = profile.emergency_name || '';
+          document.getElementById('emergencyPhone').value = profile.emergency_phone || '';
+          document.getElementById('medications').value = profile.medications || '';
+          document.getElementById('doctor').value = profile.doctor || '';
+          if (profile.jeevansetu_id) {
+            document.getElementById('jeevanSetuId').textContent = profile.jeevansetu_id;
+            document.getElementById('idSection').classList.remove('hidden');
+            document.getElementById('generateIdBtn').style.display = 'none';
+          } else {
+            document.getElementById('generateIdBtn').style.display = '';
+            document.getElementById('saveProfileBtn').disabled = false;
+          }
+        } else {
+          document.getElementById('generateIdBtn').style.display = '';
+          document.getElementById('saveProfileBtn').disabled = false;
+        }
+      }
+      loadProfile();
+    </script>
+  </body>
+</html> 

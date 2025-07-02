@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verify JeevanSetu ID</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Public+Sans:wght@400;500;700;900" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body class="min-h-screen flex items-center justify-center bg-[#f8fafc] px-2 sm:px-0" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="w-full max-w-xs sm:max-w-md bg-white rounded-lg shadow-lg p-4 sm:p-8 flex flex-col items-center">
+      <h2 class="text-2xl font-bold text-[#111518] mb-4">Verify JeevanSetu ID</h2>
+      <form id="verifyForm" class="w-full flex flex-col gap-3 sm:gap-4 mb-4">
+        <label class="block text-sm font-medium text-[#111518] mb-1" for="verifyId">Enter JeevanSetu ID</label>
+        <input class="w-full rounded border border-[#dce1e5] px-3 py-2" type="text" id="verifyId" name="verifyId" placeholder="JVS-1234" required />
+        <button type="submit" class="w-full bg-[#1993e5] text-white font-bold py-2 rounded-lg hover:bg-[#157ac1] transition text-sm sm:text-base">Check Info</button>
+      </form>
+      <div id="verifyError" class="text-red-500 text-sm text-center mb-2 hidden"></div>
+      <div id="profileResult" class="w-full hidden text-sm sm:text-base">
+        <h3 class="text-lg font-semibold text-[#111518] mb-2">Health Profile</h3>
+        <div class="flex flex-col gap-2">
+          <div><span class="font-medium">Full Name:</span> <span id="resultFullName"></span></div>
+          <div><span class="font-medium">Blood Group:</span> <span id="resultBloodGroup"></span></div>
+          <div><span class="font-medium">Allergies:</span> <span id="resultAllergies"></span></div>
+          <div><span class="font-medium">Medical Conditions:</span> <span id="resultConditions"></span></div>
+          <div><span class="font-medium">Emergency Contact Name:</span> <span id="resultEmergencyName"></span></div>
+          <div><span class="font-medium">Emergency Contact Phone:</span> <span id="resultEmergencyPhone"></span></div>
+          <div><span class="font-medium">Medications:</span> <span id="resultMedications"></span></div>
+          <div><span class="font-medium">Doctor's Name:</span> <span id="resultDoctor"></span></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('verifyForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const id = document.getElementById('verifyId').value.trim();
+        const errorDiv = document.getElementById('verifyError');
+        const resultDiv = document.getElementById('profileResult');
+        errorDiv.classList.add('hidden');
+        resultDiv.classList.add('hidden');
+        try {
+          const res = await fetch('/api/profile/by-id/' + encodeURIComponent(id));
+          if (!res.ok) {
+            const data = await res.json();
+            errorDiv.textContent = data.message || 'Profile not found.';
+            errorDiv.classList.remove('hidden');
+            return;
+          }
+          const profile = await res.json();
+          document.getElementById('resultFullName').textContent = profile.full_name || '';
+          document.getElementById('resultBloodGroup').textContent = profile.blood_group || '';
+          document.getElementById('resultAllergies').textContent = profile.allergies || '';
+          document.getElementById('resultConditions').textContent = profile.conditions || '';
+          document.getElementById('resultEmergencyName').textContent = profile.emergency_name || '';
+          document.getElementById('resultEmergencyPhone').textContent = profile.emergency_phone || '';
+          document.getElementById('resultMedications').textContent = profile.medications || '';
+          document.getElementById('resultDoctor').textContent = profile.doctor || '';
+          resultDiv.classList.remove('hidden');
+        } catch (err) {
+          errorDiv.textContent = 'Network error.';
+          errorDiv.classList.remove('hidden');
+        }
+      };
+    </script>
+  </body>
+</html> 

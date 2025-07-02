@@ -1,0 +1,177 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Public+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111518]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-[#111518] text-lg font-bold leading-tight tracking-[-0.015em]">JeevanSetu ID</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">About</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">How it Works</a>
+              <a class="text-[#111518] text-sm font-medium leading-normal" href="#">Contact</a>
+            </div>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              onclick="window.location.href = localStorage.getItem('user') ? 'dashboard.html' : 'register.html';"
+            >
+              <span class="truncate">Create Your ID</span>
+            </button>
+            <a class="text-[#1993e5] text-sm font-medium ml-4 hover:underline" href="login.html">Login</a>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-4">
+                <div
+                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
+                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNqX3iXXieUYkPq2YLARAPko5M-0yfbUj9Jh0uS7lsB6QCBPPTxnEtnGNg3dD9jHggNuuI6PjnQpCH1Rbi0PgAOSuYeaDCtCWXwuUnajYv5DVSSZWuajqrijMj4IFsQ69CB5y0lzy1cV2huj8DPpo9wjj3UHo7hE_GOBS4TM4d8LaD4ohsWH2OqKeABWw0rNEWCEaDAO2JW5BMWj6lZw92cmKUpvXUq4GoVM5LFv_ktQqPZpIpsDJ6jXCWdM4C8h60IiantAIr0dmZ");'
+                >
+                  <div class="flex flex-col gap-2 text-center">
+                    <h1
+                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                    >
+                      Your Health, Instantly Accessible
+                    </h1>
+                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                      JeevanSetu ID provides a unique health ID for quick access to your critical medical information in emergencies. No app, no login required.
+                    </h2>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    onclick="window.location.href = localStorage.getItem('user') ? 'dashboard.html' : 'register.html';"
+                  >
+                    <span class="truncate">Create Your ID</span>
+                  </button>
+                  <a class="text-[#1993e5] text-sm font-medium ml-4 hover:underline" href="login.html">Login</a>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col gap-10 px-4 py-10 @container">
+              <div class="flex flex-col gap-4">
+                <h1
+                  class="text-[#111518] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                >
+                  How JeevanSetu ID Works
+                </h1>
+                <p class="text-[#111518] text-base font-normal leading-normal max-w-[720px]">
+                  JeevanSetu ID simplifies emergency health information access. Create your unique ID, store your critical medical details, and access them instantly when needed.
+                </p>
+              </div>
+              <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#dce1e5] bg-white p-4 flex-col">
+                  <div class="text-[#111518]" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-[#111518] text-base font-bold leading-tight">Secure &amp; Private</h2>
+                    <p class="text-[#637988] text-sm font-normal leading-normal">
+                      Your medical data is protected with advanced security measures, ensuring privacy and confidentiality.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#dce1e5] bg-white p-4 flex-col">
+                  <div class="text-[#111518]" data-icon="Key" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M160,16A80.07,80.07,0,0,0,83.91,120.78L26.34,178.34A8,8,0,0,0,24,184v40a8,8,0,0,0,8,8H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A80,80,0,1,0,160,16Zm0,144a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A64,64,0,1,1,160,160Zm32-84a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-[#111518] text-base font-bold leading-tight">Easy Access</h2>
+                    <p class="text-[#637988] text-sm font-normal leading-normal">
+                      Access your critical health information instantly using your unique JeevanSetu ID, without the need for apps or logins.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-1 gap-3 rounded-lg border border-[#dce1e5] bg-white p-4 flex-col">
+                  <div class="text-[#111518]" data-icon="Clock" data-size="24px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div class="flex flex-col gap-1">
+                    <h2 class="text-[#111518] text-base font-bold leading-tight">Instant Information</h2>
+                    <p class="text-[#637988] text-sm font-normal leading-normal">
+                      In emergencies, every second counts. JeevanSetu ID provides immediate access to vital medical details, potentially saving lives.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="@container">
+              <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
+                <div class="flex flex-col gap-2 text-center">
+                  <h1
+                    class="text-[#111518] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
+                  >
+                    Get Started with JeevanSetu ID
+                  </h1>
+                  <p class="text-[#111518] text-base font-normal leading-normal max-w-[720px">
+                    Create your unique health ID today and ensure your critical medical information is always accessible in emergencies.
+                  </p>
+                </div>
+                <div class="flex flex-1 justify-center">
+                  <div class="flex justify-center">
+                    <button
+                      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#1993e5] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
+                      onclick="window.location.href = localStorage.getItem('user') ? 'dashboard.html' : 'register.html';"
+                    >
+                      <span class="truncate">Create Your ID</span>
+                    </button>
+                    <a class="text-[#1993e5] text-sm font-medium ml-4 hover:underline" href="login.html">Login</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="flex justify-center">
+          <div class="flex max-w-[960px] flex-1 flex-col">
+            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+                <a class="text-[#637988] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
+                <a class="text-[#637988] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
+                <a class="text-[#637988] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
+              </div>
+              <p class="text-[#637988] text-base font-normal leading-normal">@2024 JeevanSetu ID. All rights reserved.</p>
+            </footer>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
