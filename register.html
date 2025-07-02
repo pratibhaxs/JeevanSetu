@@ -8,16 +8,16 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   </head>
   <body class="min-h-screen flex items-center justify-center bg-[#f8fafc] px-2 sm:px-0" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
-    <div class="w-full max-w-xs sm:max-w-md bg-white rounded-lg shadow-lg p-4 sm:p-8">
-      <div class="flex flex-col items-center mb-6">
-        <div class="size-8 mb-2">
+    <div class="w-full max-w-md sm:max-w-lg bg-white rounded-lg shadow-lg p-8 sm:p-12">
+      <div class="flex flex-col items-center mb-8">
+        <div class="size-10 mb-3">
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="#1993e5"></path>
           </svg>
         </div>
-        <h2 class="text-xl sm:text-2xl font-bold text-[#111518]">Register for JeevanSetu ID</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold text-[#111518]">Register for JeevanSetu ID</h2>
       </div>
-      <form class="flex flex-col gap-3 sm:gap-4" id="registerForm">
+      <form class="flex flex-col gap-6 sm:gap-8" id="registerForm">
         <div>
           <label class="block text-sm font-medium text-[#111518] mb-1" for="name">Full Name</label>
           <input class="w-full rounded border border-[#dce1e5] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1993e5]" type="text" id="name" name="name" required />
@@ -30,7 +30,7 @@
           <label class="block text-sm font-medium text-[#111518] mb-1" for="password">Password</label>
           <input class="w-full rounded border border-[#dce1e5] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#1993e5]" type="password" id="password" name="password" required />
         </div>
-        <button type="submit" class="w-full bg-[#1993e5] text-white font-bold py-2 rounded-lg mt-2 hover:bg-[#157ac1] transition text-sm sm:text-base">Register</button>
+        <button type="submit" class="w-full bg-[#1993e5] text-white font-bold py-4 rounded-lg mt-2 hover:bg-[#157ac1] transition text-lg sm:text-xl">Register</button>
       </form>
       <div id="registerError" class="text-red-500 text-sm text-center mt-2 hidden"></div>
       <div class="text-center mt-4">
